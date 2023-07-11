@@ -1,0 +1,112 @@
+@use '../abstracts/index.scss' as *;
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(60deg, rgba(0, 76, 77, 1) 6%, rgba(0, 127, 128, 1) 18%, rgba(0, 229, 230, 1) 45%, rgba(0, 178, 179, 1) 74%, rgba(0, 255, 90, 1) 97%);
+    overflow-y: auto;
+}
+
+.forms__content {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    padding: 10px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    max-width: 700px;
+    width: 100%;
+    background-color: #ffffff6e;
+    border-radius: 4px;
+    border: solid 2px $color-grey-0;
+    padding: 15px;
+    row-gap: 20px;
+
+    &__header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__title {
+        font-family: $text-font-stack;
+        font-size: $large-size;
+        font-weight: $bold-weight;
+    }
+
+    &__content_input {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    &__label {
+        font-size: $medium-size;
+        font-weight: $semi-bold-weight;
+        font-family: $text-font-stack;
+    }
+
+    &__button {
+        height: 40px;
+        padding: 8px 1rem;
+        border-radius: 6px;
+        background: linear-gradient(200deg,
+                $color-cyan-0,
+                $color-grey-1);
+        color: #fff;
+        font-size: $medium-size;
+        font-weight: $semi-bold-weight;
+        box-shadow: 0 6px 24px $color-cyan-4;
+        margin-bottom: 1rem;
+        text-decoration: none;
+        cursor: pointer;
+
+        &:hover {
+            background: linear-gradient(200deg,
+                    $color-cyan-9,
+                    $color-grey-1);
+            color: #fff;
+            border: 2px solid $color-cyan-4;
+            box-shadow: 0 6px 24px $color-cyan-4;
+        }
+    }
+
+    &__link {
+        color: $color-cyan-7;
+        font-size: $medium-size;
+        font-weight: $semi-bold-weight;
+        text-decoration: none;
+        cursor: pointer;
+
+        &:hover {
+            color: $color-grey-0;
+        }
+    }
+
+    &__input {
+        width: 100%;
+        padding: 14px 12px;
+        border-radius: 6px;
+        border: 2px solid $color-grey-0;
+        background-color: hsla(249, 17%, 92%, 0.177);
+        color: $color-black;
+        font-size: $medium-size;
+        font-weight: $medium-weight;
+        transition: border 1.4s;
+
+        &::placeholder {
+            font-size: $medium-size;
+            color: $color-grey-1;
+        }
+
+        &:focus,
+        &:valid {
+            border: 2px solid $color-cyan-1;
+        }
+    }
+}
