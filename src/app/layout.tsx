@@ -2,7 +2,13 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 
 import '../scss/main.scss'
-import styles from './styles.module.scss'
+import { AuthProvider } from '@/context/Auth.Context';
+import { NextRouter } from 'next/router';
+
+interface RootLayoutProps {
+  children: React.ReactNode;
+  router: NextRouter;
+}
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -12,13 +18,13 @@ export const metadata: Metadata = {
 }
 
 export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+  children, router
+}: RootLayoutProps) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <AuthProvider router={router}>
+        <body className={inter.className}>{children}</body>
+      </AuthProvider>
     </html>
   )
 }
